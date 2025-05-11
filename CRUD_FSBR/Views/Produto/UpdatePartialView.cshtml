@@ -1,0 +1,46 @@
+﻿@model ProdutoModel
+
+<form asp-controller="Produto" asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome do produto" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <input type="text" asp-for="Descricao" class="form-control" placeholder="Descrição do produto" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Preço</label>
+        <input type="text" asp-for="Preco" class="form-control" placeholder="Preço do produto" id="PrecoEditar" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Quantidade em Estoque</label>
+        <input type="number" asp-for="QuantidadeEstoque" class="form-control" placeholder="Quantidade em Estoque" />
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#PrecoEditar').on('input', function () {
+                let valor = $(this).val();
+                valor = valor.replace(',', '.');
+
+                if (!isNaN(valor) && /^\d*\.?\d{0,2}$/.test(valor)) {
+                    $(this).val(valor.replace('.', ','));
+                } else {
+                    $(this).val(valor.slice(0, -1));
+                }
+            });
+        });
+    </script>
+}
