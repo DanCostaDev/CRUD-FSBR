@@ -36,7 +36,8 @@ Inclui testes unitários usando xUnit.
 6. Rode a aplicação:
 ```
 	cd CRUD_FSBR
-
+```
+```
 	dotnet run
 ```
 A aplicação estará disponível em: https://localhost:5121 (ou a porta indicada no terminal).
