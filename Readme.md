@@ -29,14 +29,15 @@ Inclui testes unitários usando xUnit.
 ```
 4. Altere a string de conexão conforme o seu ambiente (nome do servidor, usuário e senha do SQL Server)
 
-5. Compile a aplicação
-```
-	dotnet build
-```
-6. Rode a aplicação:
+5. Aplique as migrations para criar o banco de dados
 ```
 	cd CRUD_FSBR
 ```
+```
+	dotnet ef database update
+```
+6. Rode a aplicação:
+
 ```
 	dotnet run
 ```
